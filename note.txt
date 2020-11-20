@@ -1,0 +1,31 @@
+//时间戳转正常日期格式
+formatDate(row, column) {
+let date = new Date(parseInt(row.birth));
+let Y = date.getFullYear() + "-";
+let M =
+date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) + "-" : date.getMonth() + 1 + "-" ; let D=date.getDate() < 10
+    ? "0" + date.getDate() + " " : date.getDate() + " " ; return Y + M + D;
+    },==========================================================2.element(时间插件返回时间戳给后台) <el-date-picker
+    v-model="dioData.reqDate" placeholder="网约时间" value-format="timestamp" dateType="time">
+    </el-date-picker>
+    // 加上value-format="timestamp" 即可
+
+
+
+    //性别转换
+    formatSex(row, column) {
+    return row.gender == "male "
+    ? "男"
+    : row.gender == "female"
+    ? "女"
+    : "男 ";
+    },
+
+    如果后台数据是数组
+    changeName(row) {
+    return row.privileges.map((item) => item.name);
+    },
+    如果后台数据是对象
+    changeName(row) {
+    return row.privileges.name;
+    },
